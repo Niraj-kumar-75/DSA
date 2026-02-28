@@ -2,36 +2,29 @@ class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
 
-        // Step 1: Frequency map
-        unordered_map<string,int> freq;
-        for(string &s : words) {
-            freq[s]++;
+         int n = words.size();
+        map<string,int>m;
+        for(int i=0;i<n;i++){
+            m[words[i]]++ ;
         }
-
-        // Step 2: Custom comparator
-        auto cmp = [](const pair<int,string>& a,
-                      const pair<int,string>& b) {
-            if(a.first == b.first)
-                return a.second > b.second; // string ASC (min first)
-            return a.first < b.first;       // freq DESC
-        };
-
-        // Step 3: Max Heap with custom comparator
-        priority_queue<pair<int,string>,
-                       vector<pair<int,string>>,
-                       decltype(cmp)> pq(cmp);
-
-        for(auto &it : freq) {
-            pq.push({it.second, it.first});
+        vector<pair<int,string>>v;
+        for(auto ele : m){
+            // string a= ele.first;
+            // int b = ele.second;
+            v.push_back({ele.second,ele.first});
         }
-
-        // Step 4: Pop k elements
-        vector<string> res;
-        while(k--) {
-            res.push_back(pq.top().second);
-            pq.pop();
+            sort(v.begin(), v.end(), [](auto &a, auto &b){
+                   if(a.first == b.first)
+                    return a.second < b.second;
+                    return a.first > b.first;
+            });
+        vector<string>ans;
+        
+        for(int i=0;i<k;i++){
+            // if(count==k) break;
+            ans.push_back(v[i].second);
+            // count++;
         }
-
-        return res;
+        return ans;
     }
 };
