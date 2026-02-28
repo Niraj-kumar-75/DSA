@@ -4,7 +4,7 @@ public:
 
         // Step 1: Frequency map
         unordered_map<string,int> freq;
-        for(string s : words) {
+        for(string &s : words) {
             freq[s]++;
         }
 
