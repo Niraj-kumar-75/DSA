@@ -18,13 +18,14 @@ public:
             
             if(slow == fast)
             {
-                ListNode *ptr = head;
-                while(ptr!=slow)
+                slow = head;
+                while(fast!=slow)
                 {
-                    ptr = ptr->next;
+                    // ptr = ptr->next;
                     slow = slow->next;
+                    fast = fast->next;
                 }
-            return ptr;
+            return slow;
             }
         }
         return NULL;
