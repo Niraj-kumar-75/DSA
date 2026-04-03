@@ -24,7 +24,7 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-      if(prev != NULL)
+    //   if(prev != NULL)
         prev->next = slow->next;
         return head;
     }
