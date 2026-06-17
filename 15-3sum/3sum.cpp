@@ -16,6 +16,7 @@ public:
                     ans.push_back({nums[i],nums[left],nums[right]});
                     left++;
                     right--;
+                    //left duplicate ko skip kro
                     while (left < right && nums[left] == nums[left - 1]) {
                         left++;
                     }
@@ -24,6 +25,7 @@ public:
                     while (left < right && nums[right] == nums[right + 1]) {
                         right--;
                     }
+                
                 }
                 else if(sum<0)
                 {
