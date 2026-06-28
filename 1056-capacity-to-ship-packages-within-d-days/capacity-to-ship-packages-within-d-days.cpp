@@ -8,16 +8,17 @@ public:
         for (int i = 0; i < weights.size(); i++)
         {
             currentLoad = currentLoad + weights[i];
-            if (currentLoad <= mid)
+            if (currentLoad > mid)
             {
                 // currentLoad += weights[i];
-                continue;
-            }
-            else
-            {
                 requiredDays++;
                 currentLoad = weights[i];
+                // continue;
             }
+            // else
+            // {
+                
+            // }
         }
 
         return requiredDays <= days;
