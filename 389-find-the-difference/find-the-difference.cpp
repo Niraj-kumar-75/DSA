@@ -1,18 +1,19 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int sum1 =0;
-        int sum2 =0;
-        for(int i =0;i<s.size();i++)
+        // int n1 = s.size();
+        // int n2 = t.size();
+        // int n = n1* n2;
+        char ans =0;
+        // string temp ="";
+        for (char c :s)
         {
-            sum1 += (s[i]-'0');
+            ans ^=c;
         }
-        for(int j =0;j<t.size();j++)
+        for(char d :t)
         {
-            sum2 += (t[j]-'0');
+            ans ^=d;
         }
-        int temp = sum2 - sum1;
-        char ans = temp + '0';
         return ans;
     }
 };
